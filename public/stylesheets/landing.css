@@ -44,23 +44,27 @@ body {
 }
 
 .slideshow li:nth-child(1) { 
-  background-image: url(https://res.cloudinary.com/tereshka/image/upload/v1528533988/yelp_camp_setup/1.jpg) 
+  background-image: url(https://res.cloudinary.com/tereshka/image/upload/v1528956576/yelp_camp_setup/1_.jpg) 
 }
 .slideshow li:nth-child(2) { 
-  background-image: url(https://res.cloudinary.com/tereshka/image/upload/v1528533987/yelp_camp_setup/2.jpg);
+  background-image: url(https://res.cloudinary.com/tereshka/image/upload/v1528956578/yelp_camp_setup/5_.jpg);
   animation-delay: 10s; 
 }
 .slideshow li:nth-child(3) { 
-  background-image: url(https://res.cloudinary.com/tereshka/image/upload/v1528533987/yelp_camp_setup/3.jpg);
+  background-image: url(https://res.cloudinary.com/tereshka/image/upload/v1528956579/yelp_camp_setup/6_.jpg);
   animation-delay: 20s; 
 }
 .slideshow li:nth-child(4) { 
-  background-image: url(https://res.cloudinary.com/tereshka/image/upload/v1528533987/yelp_camp_setup/4.jpg);
+  background-image: url(https://res.cloudinary.com/tereshka/image/upload/v1528956579/yelp_camp_setup/3_.jpg);
   animation-delay: 30s; 
 }
 .slideshow li:nth-child(5) { 
-  background-image: url(https://res.cloudinary.com/tereshka/image/upload/v1528533989/yelp_camp_setup/5.jpg);
+  background-image: url(https://res.cloudinary.com/tereshka/image/upload/v1528956580/yelp_camp_setup/4_.jpg);
   animation-delay: 40s; 
+}
+.slideshow li:nth-child(6) { 
+  background-image: url(https://res.cloudinary.com/tereshka/image/upload/v1528956582/yelp_camp_setup/2_.jpg);
+  animation-delay: 50s; 
 }
 
 @keyframes imageAnimation { 
