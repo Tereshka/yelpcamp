@@ -1,0 +1,41 @@
+<%include ../partials/header%>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-3 text-center p-2">
+			<img id="avatar" src="<%=user.avatar%>" alt="avatar" />
+		</div>
+		<div class="col-md-9">
+			<div class="text-center">
+				<h1 class="mx-auto">Profile of <%=user.username%></h1>
+				<%if(currentUser && ( user._id.equals(currentUser._id) || currentUser.isAdmin ) ){%>
+				<span class="float-right d-flex">
+					<a href="/users/<%=user.username%>/edit" class="btn btn-warning btn-sm mr-1">Edit</a>
+				</span>
+				<%}%>
+			</div>
+			<div class="mx-3">
+				<div class="">
+					<p><b>Username:</b> <%=user.username%></p>
+					<p><b>First Name:</b> <%=user.firstName%></p>
+					<p><b>Last Name:</b> <%=user.lastName%></p>
+					<p><b>Role:</b> <%=user.isAdmin ? "Admin" : "User"%></p>
+				</div>
+			</div>
+			<div class="row d-flex flex-wrap text-center justify-content-center">
+				<%campgrounds.forEach(function(camp){%>
+				<div  class="card border-secondary col-12 col-sm-5 col-md-5 col-lg-3 mx-3 my-2 p-0">
+					<img class="card-img-top img-fluid" src="<%=camp.image%>" >
+					<div class="card-body">
+						<h5 class="card-title"><%=camp.name%></h5 >
+						<a class="btn btn-primary" href="/campgrounds/<%=camp.id%>">More Info</a>
+					</div>
+				</div >
+				<%})%>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<%include ../partials/footer%>

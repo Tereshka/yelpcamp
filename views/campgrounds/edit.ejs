@@ -1,0 +1,70 @@
+<%include ../partials/header%>
+
+<div class="container">
+	<a href="/campgrounds">Go Back</a>
+	<div class="row text-center">
+		<h1 class="mx-auto">Edit <%=campground.name%></h1>
+	</div>
+	<div class="row text-center">
+		<form class="m-auto w-50" action="/campgrounds/<%=campground._id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+			<div class="form-group">
+			    <label>Campground's name</label>
+			    <input class="form-control" type="text" placeholder="name" name="campground[name]" value="<%=campground.name%>">
+		  	</div>
+
+		  	<div>
+		  		<label>Image URL</label><br>
+		  		<div class="form-group">
+			  		<span class="btn-group btn-group-toggle" data-toggle="buttons">
+					  	<label class="btn btn-secondary active focus" onclick="showUrl()"><input  type="radio" name="options" id="option1" autocomplete="off" checked>URL</label>
+					  	<label class="btn btn-secondary"  onclick="showComp()"><input type="radio" name="options" id="option2" autocomplete="off">UPLOAD</label>
+					</span>
+					<span id="uploadUrl" class="form-group">
+					    <input class="form-control" type="text" placeholder="image url" name="campground[image]" value="<%=campground.image%>">
+				  	</span>
+				  	<span id="uploadComputer" class="form-group custom-file" style="display: none;">
+		                <input type="file" class="custom-file-input" id="image" name="image" accept="image/*" onchange="$(this).next().after().text($(this).val().split('\\').slice(-1)[0])">
+		                <label class="custom-file-label" for="image">Choose file</label>
+		            </span>
+		  		</div>
+			  	
+		  	</div>
+
+		  	<div class="form-group">
+			    <label>Description</label>
+			    <textarea class="form-control" type="text" placeholder="description" name="campground[description]" value="<%=campground.description%>" rows="5"></textarea>
+		  	</div>
+		  	<div class="form-group">
+			    <label>Price per night</label>
+			    <div class="input-group mb-3">
+					<div class="input-group-prepend">
+					    <span class="input-group-text">$</span>
+					</div>
+					<input type="number" class="form-control"  name="campground[price]" min="0.01" step="0.01" placeholder="0.01"  value="<%=campground.price%>">
+				</div>
+		  	</div>
+		  	<div class="form-group">
+			    <label>Location</label>
+			    <input class="form-control" type="text" name="location" id="location" value="<%= campground.location %>">
+			</div>
+			<button type="submit" class="btn btn-primary btn-block">Submit</button>
+		</form>
+	</div>
+</div>
+
+<script type="text/javascript">
+	function showComp(){
+        document.getElementById("uploadUrl").style.display = 'none';
+        document.getElementById("uploadComputer").style.display = 'block';
+    }
+    function showUrl(){
+        document.getElementById("uploadUrl").style.display = 'block';
+        document.getElementById("uploadComputer").style.display = 'none';
+    }
+	function searchPlace(){
+		new google.maps.places.Autocomplete(document.getElementById("location"));
+	}
+</script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=<%=api_key%>&callback=searchPlace"></script>
+
+<%include ../partials/footer%>

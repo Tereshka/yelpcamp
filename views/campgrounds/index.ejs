@@ -1,0 +1,72 @@
+<%include ../partials/header%>
+
+<div class="container">
+
+	<header class="jumbotron">
+		<div class="container">
+			<h1><img id="tent" src="/resources/glyphicons-497-tent.png" alt="icon"/>Welcome to Campgrounds</h1>
+			<p>View our hand-picked campgrounds from all over the world</p>
+			<a class="btn btn-primary" href="/campgrounds/new">Add new Campground</a>
+		</div>
+	</header>
+
+	<div class="row d-flex flex-wrap text-center justify-content-center">
+			<%campgrounds.forEach(function(camp){%>
+			<div  class="card border-secondary col-12 col-sm-5 col-md-5 col-lg-3 mx-3 my-2 p-0">
+				<img class="card-img-top img-fluid" src="<%=camp.image%>" >
+				<div class="card-body">
+					<h5 class="card-title"><%=camp.name%></h5 >
+					<a class="btn btn-primary" href="/campgrounds/<%=camp.id%>">More Info</a>
+				</div>
+			</div >
+			<%})%>
+	</div>
+	
+    <nav aria-label="Page navigation">
+    <% if (pages && pages > 0) { %>
+    <ul class="pagination justify-content-center">
+        <% if (current == 1) { %>
+        <li class="page-item disabled"><a class="page-link">First</a></li>
+        <% } else { %>
+        <li><a class="page-link" href="/campgrounds<%if(search){%>?search=<%=search%><%}%>">First</a></li>
+        <% } %>
+ 
+        <% if (current == 1) { %>
+        <li class="page-item disabled"><a class="page-link">«</a></li>
+        <% } else { %>
+        <li><a class="page-link" href="/campgrounds?page=<%= Number(current) - 1 %><%if(search){%>&search=<%=search%><%}%>">«</a></li>
+        <% } %>
+ 
+        <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+        <% if (i !== 1) { %>
+        <li class="page-item disabled"><a class="page-link">...</a></li>
+        <% } %>
+        <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+        <% if (i == current) { %>
+        <li class="active"><a class="page-link"><%= i %></a></li>
+        <% } else { %>
+        <li><a class="page-link" href="/campgrounds?page=<%= i %><%if(search){%>&search=<%=search%><%}%>"><%= i %></a></li>
+        <% } %>
+        <% if (i == Number(current) + 4 && i < pages) { %>
+        <li class="page-item disabled"><a class="page-link">...</a></li>
+        <% } %>
+        <% } %>
+ 
+        <% if (current == pages) { %>
+        <li class="page-item disabled"><a class="page-link">»</a></li>
+        <% } else { %>
+        <li><a class="page-link" href="/campgrounds?page=<%= Number(current) + 1 %><%if(search){%>&search=<%=search%><%}%>">»</a></li>
+        <% } %>
+ 
+        <% if (current == pages) { %>
+        <li class="page-item disabled"><a class="page-link">Last</a></li>
+        <% } else { %>
+        <li><a class="page-link" href="/campgrounds?page=<%= pages %><%if(search){%>&search=<%=search%><%}%>">Last</a></li>
+        <% } %>
+    </ul>
+    <% } %>
+</nav>
+
+</div>
+
+<%include ../partials/footer%>
