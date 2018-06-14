@@ -23,10 +23,17 @@ When you add a new campground you need to put an information about it's location
 You can add campground's picture by inserting a simple url or by picking a photo from your computer. There is Cloudinary API for storing photos. 
 
 The whole variables for the project:
+
 MONGODB_URI= url of mongoDB
+
 GEOCODER_API_KEY= a Google Maps API key for backend part
+
 GMAIL= the main address, which sends you emails about reseting a password
+
 GMAILPW= password from an email
+
 CLOUDINARY_NAME= username from Cloudinary API
+
 CLOUDINARY_API_KEY= Cloudinary API key
+
 CLOUDINARY_API_SECRET= Cloudinary API secret
