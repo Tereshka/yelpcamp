@@ -79,7 +79,7 @@
 					<hr>
 					<div>
 						
-						<a href="/users/<%=campground.author.username%>"><b><%=comment.author.username%></b></a><span class="text-muted font-italic"> - <%= moment(comment.createdAt).fromNow() %></span>
+						<a href="/users/<%=comment.author.username%>"><b><%=comment.author.username%></b></a><span class="text-muted font-italic"> - <%= moment(comment.createdAt).fromNow() %></span>
 						<!-- <br> -->
 
 						<%if(currentUser && (comment.author.id.equals(currentUser._id) || currentUser.isAdmin)){%>
@@ -124,8 +124,8 @@
 
 <script>
   function initMap() {
-    var lat = <%= campground.lat %>;
-    var lng = <%= campground.lng %>;
+    var lat = <%=campground.lat%>;
+    var lng = <%=campground.lng%>;
     var center = {lat: lat, lng: lng };
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 8,
