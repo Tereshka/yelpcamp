@@ -1,4 +1,4 @@
-# yelpcamp
+# YelpCamp
 
 Live version: https://tereshka-yelp-camp.herokuapp.com/
 
