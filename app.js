@@ -26,7 +26,7 @@ app.use(methodOveride("_method"));
 app.use(flash());
 
 app.locals.moment = require('moment');
-app.locals.api_key = "AIzaSyCMort8xLxRXw1p67hwO7vzMw31mZJQIFE"; //Google API
+app.locals.api_key = process.env.GEOCODER_API_KEY; //Google API
 app.locals.adminCode = "secretText123!";
 
 // PASSPORT configuration
